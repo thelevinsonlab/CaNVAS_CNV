@@ -2,19 +2,16 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import getopt
 import os
 import numpy as np
 import pandas as pd
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
-import plotly.express as px
 import argparse
 
 def createPlots(outputpath):
 	print("Generating Plots")
 	files = [f for f in os.listdir(outputpath) if os.path.isfile(os.path.join(outputpath, f))]
-	#with os.scandir(outputpath) as entries:
 	for f in files:
 		print(f)
 		dat=pd.read_csv(outputpath+"/"+f, delim_whitespace=True)
@@ -50,9 +47,9 @@ def createPlots(outputpath):
 
 def main(argv):
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-outpath', type=str)
+	parser.add_argument('-path', type=str)
 	args = parser.parse_args()
-	outputpath = args.outpath
+	outputpath = args.path
 	createPlots(outputpath)
 
 
