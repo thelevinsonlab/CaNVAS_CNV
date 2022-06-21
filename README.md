@@ -45,3 +45,5 @@ After running the process_CaNVAS_CNV.py script, you may want to plot your data. 
 ```
 
 This script should automatically generate a set of interactive HTML plots for each CNV. 
+
+The default plotting script uses Mean as the independent and dependent variable by default. If you would like to plot Medians, please use the script plotCaNVAS_Medians.py. Syntax is the same as listed above. 
