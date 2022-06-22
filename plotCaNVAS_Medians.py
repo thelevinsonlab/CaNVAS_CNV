@@ -1,7 +1,3 @@
-#check variable names before pushing to git
-
-
-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -36,27 +32,29 @@ def createPlots(outputpath):
 		fig.add_trace(go.Scatter(x=x, y=y4, mode="markers",text=dat.SubjectID,hoverinfo='text'), row=2, col=2)
 		fig.add_trace(go.Scatter(x=x, y=y5, mode="markers",text=dat.SubjectID,hoverinfo='text'), row=3, col=1)
 		fig.add_trace(go.Scatter(x=x, y=y6, mode="markers",text=dat.SubjectID,hoverinfo='text'), row=3, col=2)
-		fig.update_xaxes(title_text="medianLRRIn", row=1, col=1)
-		fig.update_xaxes(title_text="medianLRRIn", row=1, col=2)
-		fig.update_xaxes(title_text="medianLRRIn",  row=2, col=1)
-		fig.update_xaxes(title_text="medianLRRIn", row=2, col=2)
-		fig.update_xaxes(title_text="medianLRRIn",  row=3, col=1)
-		fig.update_xaxes(title_text="medianLRRIn", row=3, col=2)
-		fig.update_yaxes(title_text="medianLRROutLeft", row=1, col=1)
-		fig.update_yaxes(title_text="medianLRROutRight", row=1, col=2)
+		fig.update_xaxes(title_text="MedianLRRIn", row=1, col=1)
+		fig.update_xaxes(title_text="MedianLRRIn", row=1, col=2)
+		fig.update_xaxes(title_text="MedianLRRIn",  row=2, col=1)
+		fig.update_xaxes(title_text="MedianLRRIn", row=2, col=2)
+		fig.update_xaxes(title_text="MedianLRRIn",  row=3, col=1)
+		fig.update_xaxes(title_text="MedianLRRIn", row=3, col=2)
+		fig.update_yaxes(title_text="MedianLRROutLeft", row=1, col=1)
+		fig.update_yaxes(title_text="MedianLRROutRight", row=1, col=2)
 		fig.update_yaxes(title_text="AverageMedianLRROut", row=2, col=1)
 		fig.update_yaxes(title_text="BAF Homozygote", row=2, col=2)
 		fig.update_yaxes(title_text="BAF Trisomic", row=3, col=1)
 		fig.update_yaxes(title_text="BAF Disomic", row=3, col=2)
 		fig.update_layout(height=1000, width=2000, title_text=f)	
 		fig.update_annotations(clicktoshow='onoff')		
-		fig.write_html(outputpath+"/plots/"+f+"plot.html")
+		fig.write_html(outputpath+"/plots/median_plots/"+f+"plot.html")
 
 def main(argv):
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-outpath', type=str)
+	parser.add_argument('-path', type=str)
 	args = parser.parse_args()
-	outputpath = args.outpath
+	outputpath = args.path
+	if not os.path.exists(outputpath+'/plots/median_plots/'):
+		os.makedirs(str(outputpath+'/plots/median_plots/'))
 	createPlots(outputpath)
 
 
