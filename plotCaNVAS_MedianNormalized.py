@@ -55,7 +55,7 @@ def createPlots(outputpath):
 		fig.update_yaxes(title_text="BAFHomozygote", row=3, col=3)
 		fig.update_yaxes(title_text="BAFTrisomic", row=3, col=3)
 		fig.update_yaxes(title_text="BAFDisomic", row=3, col=3)
-		fig.update_layout(height=900, width=1800, title_text=f)	
+		fig.update_layout(height=900, width=1800, title_text="Median Normalized "+f)	
 		fig.update_annotations(clicktoshow='onoff')		
 		fig.write_html(outputpath+"/plots/median_normalized/"+f+"median_normalized_plot.html")
 

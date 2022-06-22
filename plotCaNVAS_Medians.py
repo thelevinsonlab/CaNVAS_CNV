@@ -44,7 +44,7 @@ def createPlots(outputpath):
 		fig.update_yaxes(title_text="BAF Homozygote", row=2, col=2)
 		fig.update_yaxes(title_text="BAF Trisomic", row=3, col=1)
 		fig.update_yaxes(title_text="BAF Disomic", row=3, col=2)
-		fig.update_layout(height=1000, width=2000, title_text=f)	
+		fig.update_layout(height=1000, width=2000, title_text="Medians "+f)	
 		fig.update_annotations(clicktoshow='onoff')		
 		fig.write_html(outputpath+"/plots/median_plots/"+f+"plot.html")
 
