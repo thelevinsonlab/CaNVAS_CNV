@@ -8,7 +8,6 @@ import pandas as pd
 pd.options.mode.chained_assignment = None  # default='warn'cd
 import argparse
 
-
 def renameColumns(columnHeader):
     if "Log R Ratio" in columnHeader:
         return  "logRratio"
@@ -20,7 +19,7 @@ def renameColumns(columnHeader):
         return columnHeader
 
 def process_CNVs(inputfile, inputpath, outputfile, outputpath):
-	cnvInputFile=pd.read_csv(inputfile, delim_whitespace=True)
+	cnvInputFile=pd.read_csv(inputfile, delim_whitespace=True, dtype={"Chr": object, "CNVStart":int,"CNVEnd":int,"LeftStart":int,"LeftEnd":int,"RightStart":int,"RightEnd":int,})
 	cnvInputFile['CNVID']=cnvInputFile['Chr'].map(str)+"_"+cnvInputFile['CNVStart'].map(str)+"_"+cnvInputFile['CNVEnd'].map(str)
 	outDF= pd.DataFrame()
 	print("Processing CNVs")
